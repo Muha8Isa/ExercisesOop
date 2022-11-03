@@ -8,12 +8,12 @@ public class Book {
     private String title;
     private String author;
     private boolean available;
-    private int bookID;
+    private final int bookID;
     private Person holder;
 
     public Book() {
         this.bookID = ++sequencer;
-        this.order = ++order;
+        ++order;
     }
 
     public Book(String title, String author, boolean available) {
@@ -34,48 +34,8 @@ public class Book {
         }
     }
 
-    public static int getSequencer() {
-        return sequencer;
-    }
-
-    public static void setSequencer(int sequencer) {
-        Book.sequencer = sequencer;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public int getBookID() {
-        return bookID;
-    }
-
-    public void setBookID(int bookID) {
-        this.bookID = bookID;
-    }
-
-    public Person getHolder() {
-        return holder;
     }
 
     public void setHolder(Person holder) {
