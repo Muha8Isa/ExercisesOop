@@ -3,21 +3,20 @@ package se.lexicon;
 public class Person {
 
     // Fields
+
+    private static int order = 0;
+    private static int sequencer = 465;
     private int id;
+    private int idd;
     private String firstName; // null
     private String lastName; // null
 
 
-    public Person(String firstName, String lastName, int id) {
-        this(firstName, lastName);
-        setId(id);
-    }
-
     public Person(String firstName, String lastName) {
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id = ++sequencer;
+        this.idd = ++order;
     }
 
     public void setFirstName(String firstName) {
@@ -28,6 +27,10 @@ public class Person {
     public void setLastName(String lastName) {
         if (lastName == null) throw new IllegalArgumentException("lastName param was null");
         this.lastName = lastName;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -43,6 +46,6 @@ public class Person {
     }
 
     public String personInformation() {
-        return " Person: FirstName: " + firstName + " LastName: " + lastName + " ID: " + id;
+        return " Person#" + idd +" FirstName: " + firstName + ", LastName: " + lastName + ", ID: " + id;
     }
 }
